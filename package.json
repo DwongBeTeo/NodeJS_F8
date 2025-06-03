@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DwongBeTeo/NodeJS_F8.git"
+  },
+  "keywords": [
+    "duong",
+    "blog"
+  ],
+  "author": "duongtran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DwongBeTeo/NodeJS_F8/issues"
+  },
+  "homepage": "https://github.com/DwongBeTeo/NodeJS_F8#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
