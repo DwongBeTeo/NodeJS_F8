@@ -2,10 +2,17 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
+const sass = require('sass');
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')))
+const route = require('./routes');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
 
 // HTTP logger
 app.use(morgan('combined'));
@@ -17,15 +24,8 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views','./src/resources/views'); // Chỉ định thư mục layouts
 
-console.log('Path: ',__dirname);
-
-app.get('/', (req, res) => {
-  return res.render('home'); // Render file main.handlebars
-});
-
-app.get('/news', (req, res) => {
-  return res.render('news'); // Render file main.handlebars
-});
+//Routes init
+route(app);
 
 app.listen(port, () => {
   console.log(`Ứng dụng đang chạy tại http://localhost:${port}`);
